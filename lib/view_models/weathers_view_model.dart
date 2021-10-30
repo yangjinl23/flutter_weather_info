@@ -9,13 +9,11 @@ class WeathersViewModel extends ChangeNotifier {
   List<Weather?>? _weatherListModel = [];
   WeatherError? _weatherError;
   Weather? _selectedWeather;
-  Weather? _addingWeather = Weather();
 
   bool get loading => _loading;
   List<Weather?>? get weatherListModel => _weatherListModel;
   WeatherError? get weatherError => _weatherError;
   Weather? get selectedWeather => _selectedWeather;
-  Weather? get addingWeather => _addingWeather;
 
   WeathersViewModel() {
     getWeathers();
@@ -36,22 +34,6 @@ class WeathersViewModel extends ChangeNotifier {
 
   setSelectedWeather(Weather weather) {
     _selectedWeather = weather;
-  }
-
-  addWeather(Weather weather) async {
-    if (!isValid()) {
-      return;
-    }
-    _weatherListModel!.add(weather);
-    notifyListeners();
-    return true;
-  }
-
-  isValid() {
-    if (addingWeather!.name == null || addingWeather!.name!.isEmpty) {
-      return false;
-    }
-    return true;
   }
 
   getWeathers() async {

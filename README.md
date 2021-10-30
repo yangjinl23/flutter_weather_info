@@ -1,17 +1,12 @@
-# flutter_weather_info
+# weather_info
 
-A new Flutter project.
+This weather App provides the functions for user to search the city weather information and details of the weather information. This Flutter App is running on flutter SDK stable 2.2.3 with Null safety.
 
-## Getting Started
+## To Start Your App
 
-This project is a starting point for a Flutter application.
+**Step 1: Add the Open Weather Map API Key**
 
-A few resources to get you started if this is your first Flutter project:
+Add your openWeatherMap api key to the contant `API_KEY` from file path`../lib/utils/constants.dart`
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# flutter_weather_info
+**Step 2: Simply start the app with**
+`flutter run`
