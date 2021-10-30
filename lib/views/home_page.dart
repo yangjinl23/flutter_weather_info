@@ -72,19 +72,21 @@ class HomePageState extends State<HomePage> {
   }
 
   Widget searchBar(WeathersViewModel weathersViewModel) {
-    return Column(children: <Widget>[
-      SearchTextField(
-        cityTextController: _cityTextController,
-        text: query,
-        hintText: cityName,
-      ),
-      ElevatedButton(
-        child: Text(searchButtonLabel),
-        onPressed: () async {
-          searchWeather(_cityTextController.text);
-        },
-      ),
-    ]);
+    return Column(
+      children: <Widget>[
+        SearchTextField(
+          cityTextController: _cityTextController,
+          text: query,
+          hintText: cityName,
+        ),
+        ElevatedButton(
+          child: Text(searchButtonLabel),
+          onPressed: () async {
+            searchWeather(_cityTextController.text);
+          },
+        ),
+      ],
+    );
   }
 
   Future<Weather?> searchWeather(String city) async {
