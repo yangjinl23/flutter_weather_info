@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_info/model/weather.dart';
 
-class WeatherListCell extends StatelessWidget {
+class WeatherTableCell extends StatelessWidget {
   final Weather? weather;
   final VoidCallback? onTap;
-  WeatherListCell({this.weather, this.onTap});
+  WeatherTableCell({this.weather, this.onTap});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_weather_info/components/weather_table_title.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_weather_info/model/weather.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_weather_info/components/app_error.dart';
 import 'package:flutter_weather_info/components/app_loading.dart';
 import 'package:flutter_weather_info/components/search_text_field.dart';
-import 'package:flutter_weather_info/components/weather_list_cell.dart';
+import 'package:flutter_weather_info/components/weather_table_cell.dart';
 import 'package:flutter_weather_info/utils/constants.dart';
 import 'package:flutter_weather_info/utils/navigation_utils.dart';
 import 'package:flutter_weather_info/view_models/weathers_view_model.dart';
@@ -37,14 +38,19 @@ class HomePageState extends State<HomePage> {
         child: Column(
           children: [
             searchBar(weathersViewModel),
-            weatherList(weathersViewModel),
+            weatherTableTitle(),
+            weatherTable(weathersViewModel),
           ],
         ),
       ),
     );
   }
 
-  Widget weatherList(WeathersViewModel weathersViewModel) {
+  Widget weatherTableTitle() {
+    return WeatherTableTitle();
+  }
+
+  Widget weatherTable(WeathersViewModel weathersViewModel) {
     if (weathersViewModel.loading) {
       return AppLoading();
     }
@@ -57,7 +63,7 @@ class HomePageState extends State<HomePage> {
       child: ListView.separated(
         itemBuilder: (context, index) {
           Weather weather = weathers![index]!;
-          return WeatherListCell(
+          return WeatherTableCell(
             weather: weather,
             onTap: () async {
               weathersViewModel.setSelectedWeather(weather);
@@ -77,7 +83,7 @@ class HomePageState extends State<HomePage> {
         SearchTextField(
           cityTextController: _cityTextController,
           text: query,
-          hintText: cityName,
+          hintText: cityNameLabel,
         ),
         ElevatedButton(
           child: Text(searchButtonLabel),
