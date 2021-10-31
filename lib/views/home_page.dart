@@ -93,6 +93,7 @@ class HomePageState extends State<HomePage> {
           child: Text(searchButtonLabel),
           onPressed: () async {
             searchWeather(_cityTextController.text);
+            _cityTextController.clear();
           },
         ),
       ],

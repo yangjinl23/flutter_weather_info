@@ -21,7 +21,7 @@ class WeatherTableCell extends StatelessWidget {
             ),
             Spacer(),
             Text(
-              weather!.main!.temp.toString(),
+              '${weather!.main!.temp}°',
               style: TextStyle(color: Colors.black, fontSize: 18.0),
             ),
           ],
