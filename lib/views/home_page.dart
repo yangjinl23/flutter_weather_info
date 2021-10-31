@@ -30,8 +30,12 @@ class HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text(appName),
+        title: Text(
+          appName,
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: Container(
         padding: const EdgeInsets.all(20.0),
